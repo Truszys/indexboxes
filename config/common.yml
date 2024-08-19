@@ -1,0 +1,13 @@
+services:
+    prestashop.module.indexboxes.repository.box_repository:
+        class: Module\IndexBoxes\Repository\IndexBoxRepository
+        public: true
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - Module\IndexBoxes\Entity\IndexBox
+
+    prestashop.module.indexboxes.boxes.install:
+        class: Module\IndexBoxes\Database\IndexBoxInstaller
+        arguments:
+            - '@doctrine.dbal.default_connection'
+            - '%database_prefix%'

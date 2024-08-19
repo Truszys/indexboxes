@@ -1,0 +1,19 @@
+{
+    "name": "jkondrat/indexboxes",
+    "license": "AFL-3.0",
+    "authors": [
+        {
+            "name": "Jakub Kondrat",
+            "email": "kondratjak@gmail.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "Module\\IndexBoxes\\": "src/"
+      },
+      "config": {
+        "prepend-autoloader": false
+      },
+      "type": "prestashop-module"
+    }
+}

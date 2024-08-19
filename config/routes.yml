@@ -1,0 +1,94 @@
+# @see https://devdocs.prestashop.com/1.7/modules/concepts/controllers/admin-controllers/#how-to-map-an-action-of-your-controller-to-a-uri
+ps_indexboxes_box_index:
+    path: /index-boxes/boxes
+    methods: [GET]
+    defaults:
+        _controller: 'Module\IndexBoxes\Controller\Admin\IndexBoxesController::indexAction'
+        _legacy_controller: 'AdminIndexboxesBox'
+        _legacy_link: 'AdminIndexboxesBox'
+
+ps_indexboxes_box_search:
+    path: /index-boxes/boxes
+    methods: [POST]
+    defaults:
+        _controller: 'Module\IndexBoxes\Controller\Admin\IndexBoxesController::searchAction'
+        _legacy_controller: 'AdminIndexboxesBox'
+        _legacy_link: 'AdminIndexboxesBox:search'
+
+ps_indexboxes_box_generate:
+    path: /index-boxes/generate
+    methods: [GET, POST]
+    defaults:
+        _controller: 'Module\IndexBoxes\Controller\Admin\IndexBoxesController::generateAction'
+        _legacy_controller: 'AdminIndexboxesBox'
+        _legacy_link: 'AdminIndexboxesBox:generate'
+
+ps_indexboxes_box_create:
+    path: /index-boxes/boxes/new
+    methods: [GET, POST]
+    defaults:
+        _controller: 'Module\IndexBoxes\Controller\Admin\IndexBoxesController::createAction'
+        _legacy_controller: 'AdminIndexboxesBox'
+        _legacy_link: 'AdminIndexboxesBox:add'
+
+ps_indexboxes_box_edit:
+    path: /index-boxes/boxes/{boxId}/edit
+    methods: [GET, POST]
+    defaults:
+        _controller: 'Module\IndexBoxes\Controller\Admin\IndexBoxesController::editAction'
+        _legacy_controller: 'AdminIndexboxesBox'
+        _legacy_link: 'AdminIndexboxesBox:edit'
+    requirements:
+        boxId: \d+
+
+ps_indexboxes_box_delete:
+    path: /index-boxes/boxes/{boxId}/delete
+    methods: [DELETE]
+    defaults:
+        _controller: 'Module\IndexBoxes\Controller\Admin\IndexBoxesController::deleteAction'
+        _legacy_controller: 'AdminIndexboxesBox'
+        _legacy_link: 'AdminIndexboxesBox:deletebox'
+    requirements:
+        boxId: \d+
+
+ps_indexboxes_box_change_position:
+    path: /index-boxes/boxes/update-position
+    methods: [POST]
+    defaults:
+        _controller: 'Module\IndexBoxes\Controller\Admin\IndexBoxesController::changePosition'
+        _legacy_controller: 'AdminIndexboxesBox'
+        _legacy_link: 'AdminIndexboxesBox:submitPositionbox'
+
+ps_indexboxes_box_toggle_status:
+    path: /index-boxes/boxes/{boxId}/toggleStatus
+    methods: [POST]
+    defaults:
+        _controller: 'Module\IndexBoxes\Controller\Admin\IndexBoxesController::toggleStatus'
+        _legacy_controller: 'AdminIndexboxesBox'
+        _legacy_link: 'AdminIndexboxesBox:submitTogleStatusbox'
+    requirements:
+        boxId: \d+
+
+ps_indexboxes_box_bulk_enable:
+    path: /index-boxes/boxes/bulkEnable
+    methods: [POST]
+    defaults:
+        _controller: 'Module\IndexBoxes\Controller\Admin\IndexBoxesController::enableBulkAction'
+        _legacy_controller: 'AdminIndexboxesBox'
+        _legacy_link: 'AdminIndexboxesBox:submitBulkenablebox'
+
+ps_indexboxes_box_bulk_disable:
+    path: /index-boxes/boxes/bulkDisable
+    methods: [POST]
+    defaults:
+        _controller: 'Module\IndexBoxes\Controller\Admin\IndexBoxesController::disableBulkAction'
+        _legacy_controller: 'AdminIndexboxesBox'
+        _legacy_link: 'AdminIndexboxesBox:submitBulkdisablebox'
+
+ps_indexboxes_box_bulk_delete:
+    path: /index-boxes/boxes/bulkDelete
+    methods: [POST]
+    defaults:
+        _controller: 'Module\IndexBoxes\Controller\Admin\IndexBoxesController::deleteBulkAction'
+        _legacy_controller: 'AdminIndexboxesBox'
+        _legacy_link: 'AdminIndexboxesBox:submitBulkdeletebox'

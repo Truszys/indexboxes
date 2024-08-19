@@ -1,0 +1,11 @@
+.grid table.grid-table tbody tr.position-row-while-drag {
+    cursor: move;
+    background: #f7f7f7
+}
+
+.grid table.grid-table tbody tr.position-row-while-drag td {
+    color: #fff;
+    background: #67868e;
+    -webkit-transform: translate(5px,10px);
+    transform: translate(5px,10px)
+}

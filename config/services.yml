@@ -1,0 +1,80 @@
+imports:
+    - { resource: ./common.yml }
+
+services:
+    # Form services
+    prestashop.module.indexboxes.type.box:
+        class: 'Module\IndexBoxes\Form\IndexBoxType'
+        parent: 'form.type.translatable.aware'
+        public: true
+        arguments:
+            - '@=service("prestashop.adapter.multistore_feature").isUsed()'
+        tags:
+            - { name: form.type }
+
+    prestashop.module.indexboxes.form.identifiable_object.data_provider.box_form_data_provider:
+        class: 'Module\IndexBoxes\Form\IndexBoxFormDataProvider'
+        arguments:
+            - '@prestashop.module.indexboxes.repository.box_repository'
+
+    prestashop.module.indexboxes.form.identifiable_object.builder.box_form_builder:
+        class: 'PrestaShop\PrestaShop\Core\Form\IdentifiableObject\Builder\FormBuilder'
+        public: true
+        factory: 'prestashop.core.form.builder.form_builder_factory:create'
+        arguments:
+            - 'Module\IndexBoxes\Form\IndexBoxType'
+            - '@prestashop.module.indexboxes.form.identifiable_object.data_provider.box_form_data_provider'
+
+    prestashop.module.indexboxes.form.identifiable_object.data_handler.box_form_data_handler:
+        class: 'Module\IndexBoxes\Form\IndexBoxFormDataHandler'
+        arguments:
+            - '@prestashop.module.indexboxes.repository.box_repository'
+            - '@prestashop.core.admin.lang.repository'
+            - '@doctrine.orm.default_entity_manager'
+
+    prestashop.module.indexboxes.form.identifiable_object.handler.box_form_handler:
+        # class: 'PrestaShop\PrestaShop\Core\Form\IdentifiableObject\Handler\FormHandler'
+        class: 'Module\Indexboxes\Form\IndexBoxFormHandler'
+        public: true
+        factory: 'prestashop.core.form.identifiable_object.handler.form_handler_factory:create'
+        arguments:
+            - '@prestashop.module.indexboxes.form.identifiable_object.data_handler.box_form_data_handler'
+
+    # Grid services
+    prestashop.module.indexboxes.grid.definition.factory.boxes:
+        class: 'Module\IndexBoxes\Grid\Definition\Factory\IndexBoxGridDefinitionFactory'
+        parent: 'prestashop.core.grid.definition.factory.abstract_grid_definition'
+
+    prestashop.module.indexboxes.grid.query_builder.box:
+        class: 'Module\IndexBoxes\Grid\Query\IndexBoxQueryBuilder'
+        parent: 'prestashop.core.grid.abstract_query_builder'
+        public: true
+        arguments:
+            - '@prestashop.core.query.doctrine_search_criteria_applicator'
+            - "@=service('prestashop.adapter.legacy.context').getContext().language.id"
+
+    prestashop.module.indexboxes.grid.data_provider.boxes:
+        class: '%prestashop.core.grid.data.factory.doctrine_grid_data_factory%'
+        arguments:
+            - '@prestashop.module.indexboxes.grid.query_builder.box'
+            - '@prestashop.core.hook.dispatcher'
+            - '@prestashop.core.grid.query.doctrine_query_parser'
+            - 'index_box'
+
+    prestashop.module.indexboxes.grid.factory.boxes:
+        class: 'PrestaShop\PrestaShop\Core\Grid\GridFactory'
+        public: true
+        arguments:
+            - '@prestashop.module.indexboxes.grid.definition.factory.boxes'
+            - '@prestashop.module.indexboxes.grid.data_provider.boxes'
+            - '@prestashop.core.grid.filter.form_factory'
+            - '@prestashop.core.hook.dispatcher'
+
+    # Generator service
+    prestashop.module.indexboxes.boxes.generator:
+        class: 'Module\IndexBoxes\Database\IndexBoxGenerator'
+        public: true
+        arguments:
+            - '@prestashop.module.indexboxes.repository.box_repository'
+            - '@prestashop.core.admin.lang.repository'
+            - '@doctrine.orm.default_entity_manager'

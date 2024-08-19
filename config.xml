@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>indexboxes</name>
+	<displayName><![CDATA[Boxes for index]]></displayName>
+	<version><![CDATA[1.0.0]]></version>
+	<description><![CDATA[Add image boxes for your index page that links to categories, products or cms]]></description>
+	<author><![CDATA[Jakub Kondrat]]></author>
+	<tab><![CDATA[front_office_features]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+</module>

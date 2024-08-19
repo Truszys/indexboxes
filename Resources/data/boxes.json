@@ -1,0 +1,54 @@
+[
+    {
+        "id_shop": 1,
+        "image": "test.jpg",
+        "bo_title": "test",
+        "type": "product",
+        "item_id": 1,
+        "position": 0,
+        "active": 1,
+        "title": {
+            "pl": "Tytuł testowy 1",
+            "en": "Test title 1"
+        }
+    },
+    {
+        "id_shop": 1,
+        "image": "test.jpg",
+        "bo_title": "test",
+        "type": "product",
+        "item_id": 2,
+        "position": 1,
+        "active": 1,
+        "title": {
+            "pl": "Tytuł testowy 2",
+            "en": "Test title 2"
+        }
+    },
+    {
+        "id_shop": 1,
+        "image": "test.jpg",
+        "bo_title": "test",
+        "type": "category",
+        "item_id": 2,
+        "position": 3,
+        "active": 0,
+        "title": {
+            "pl": "Tytuł testowy 3",
+            "en": "Test title 3"
+        }
+    },
+    {
+        "id_shop": 1,
+        "image": "test.jpg",
+        "bo_title": "test",
+        "type": "cms",
+        "item_id": 2,
+        "position": 2,
+        "active": 0,
+        "title": {
+            "pl": "Tytuł testowy 3",
+            "en": "Test title 3"
+        }
+    }
+]
