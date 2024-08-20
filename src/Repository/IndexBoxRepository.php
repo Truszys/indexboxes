@@ -17,6 +17,11 @@ class IndexBoxRepository extends EntityRepository
         return $this->findBy(['id_box' => $boxIds]);
     }
 
+    public function findByShop(int $id_shop)
+    {
+        return $this->findBy(['id_shop' => $id_shop]);
+    }
+
     public function getAllActive(int $idLang = 0, int $idShop = 0)
     {
         /** @var QueryBuilder $qb */
@@ -34,6 +39,8 @@ class IndexBoxRepository extends EntityRepository
             $idShop - \Context::getContext()->shop->id;
         }
         $qb
+            ->andWhere('b.active = :active')
+            ->setParameter('active', true)
             ->andWhere('bl.lang = :idLang')
             ->setParameter('idLang', $idLang)
             ->andWhere('b.id_shop = :idShop')
@@ -53,7 +60,7 @@ class IndexBoxRepository extends EntityRepository
         /** @var QueryBuilder $qb */
         $qb = $this
             ->createQueryBuilder('b')
-            ->select('MAX(b.position)')
+            ->select('b.position')
         ;
 
         if (0 === $id_shop) {
@@ -63,11 +70,12 @@ class IndexBoxRepository extends EntityRepository
         $qb
             ->where('b.id_shop = :id_shop')
             ->setParameter('id_shop', $id_shop)
+            ->orderBy('b.position', 'DESC')
+            ->setMaxResults(1);
         ;
+        $result = $qb->getQuery()->getResult();
 
-        dump($qb->getQuery());
-
-        return (int)$qb->getQuery()->getResult();
+        return count($result) ? (int)$result[0]['position'] : -1;
     }
 
     public function movePositions(int $boxId)
@@ -78,8 +86,8 @@ class IndexBoxRepository extends EntityRepository
         $this->createQueryBuilder('b')
             ->update()
             ->set('b.position', 'b.position-1')
-            ->where('b.position > :postition')
-            ->setParameter('postition', $box->getPosition())
+            ->where('b.position > :position')
+            ->setParameter('position', $box->getPosition())
             ->getQuery()->execute()
         ;
     }

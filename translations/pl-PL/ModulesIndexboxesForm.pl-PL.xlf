@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin500atsjj2nhqrlsxxrz" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="b018e6a2de3af2912e0f0fa970395a9d">
+        <source>BO Title</source>
+        <target>Tytuł BO</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="867af1cbc1daef8eac4ef90aa6f534a8">
+        <source>Title that is only seen in the backoffice</source>
+        <target>Tytuł widoczny tylko w backoffice</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0ad9ebfdd3f7100cec03154c83c483e3">
+        <source>Title that will be seen in frontoffice</source>
+        <target>Tytuł widoczny w frontoffice</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b78a3223503896721cca1303f776159b">
+        <source>Title</source>
+        <target>Tytuł</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="817434295a673aed431435658b65d9a7">
+        <source>Icon</source>
+        <target>Ikona</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7f0938992c2d3a3e82b073e7cd1be45e">
+        <source>Icon displayed before the title</source>
+        <target>Ikona wyświetlana przed tytułem</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a7a4ccc5e1a068d87f4965e014329201">
+        <source>XL</source>
+        <target>XL</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3138b8e6061fdf7cfaaa79279175cbcd">
+        <source>LG</source>
+        <target>LG</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7dc10e66da5549d351765bd940b81be9">
+        <source>MD</source>
+        <target>MD</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4e0d4f6ce30646f5a3f3e2a7422c1c5a">
+        <source>SM</source>
+        <target>SM</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4e51ce89637824ccde8d4ee797b78151">
+        <source>XS</source>
+        <target>XS</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c15a6ec85c9e2dfc65fde2c60b592564">
+        <source>Custom classes</source>
+        <target>Niestandardowe klasy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="5ac3a6d83c8954b6186ab3ef6b5294f1">
+        <source>Classes for box container</source>
+        <target>Klasy dla kontenerta boksa</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ea2fa277cc85e2fb89f4512305fcb28f">
+        <source>Image for box backgound</source>
+        <target>Obraz tła boksa</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e67bc47e9f8c4316229396e49680eca7">
+        <source>Please upload a valid image</source>
+        <target>Proszę wybrać poprawne zdjęcie.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a1fa27779242b4902f7ae3bdd5c6d508">
+        <source>Type</source>
+        <target>Typ</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="01bd43d097a8e0fb8873090ebc1ee57b">
+        <source>Type of item to be linked</source>
+        <target>Typ elementu, który ma zostać połączony</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="40fd33a8d5393e0f03cbbd22960d8ecf">
+        <source>Select category to be linked</source>
+        <target>Wybierz kategorię, którą chcesz połączyć</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4000d7f6cc2a31b95797c88b564e9e53">
+        <source>Select product to be linked</source>
+        <target>Wybierz produkt, którą chcesz połączyć</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f8bcb32ccb07b7b09a4b8db72901fe5d">
+        <source>Select CMS to be linked</source>
+        <target>Wybierz stronę, którą chcesz połączyć</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2f890cc6ba573f851ceda037461aaa65">
+        <source>Column height</source>
+        <target>Szerokość kolumny</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

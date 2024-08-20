@@ -64,7 +64,6 @@ class IndexBoxFormHandler implements FormHandlerInterface
      */
     public function handleFor($id, FormInterface $form)
     {
-        dump($form);
         return $this->handleForm($form, $id);
     }
 
@@ -89,8 +88,6 @@ class IndexBoxFormHandler implements FormHandlerInterface
 
             return FormHandlerResult::createSubmittedButNotValid();
         }
-
-        dump($form);
 
         if (!$form->isValid()) {
             return FormHandlerResult::createSubmittedButNotValid();
@@ -118,10 +115,6 @@ class IndexBoxFormHandler implements FormHandlerInterface
             'id' => $id,
         ]);
 
-        if($data['new_image']) {
-            $data['image'] = $data['new_image'];
-        }
-
         $this->dataHandler->update($id, $data);
 
         $this->hookDispatcher->dispatchWithParameters('actionAfterUpdate' . Container::camelize($form->getName()) . 'FormHandler', [
@@ -146,10 +139,6 @@ class IndexBoxFormHandler implements FormHandlerInterface
                 'form_data' => &$data,
             ]
         );
-
-        if($data['new_image']) {
-            $data['image'] = $data['new_image'];
-        }
 
         $id = $this->dataHandler->create($data);
 

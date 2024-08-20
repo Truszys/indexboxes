@@ -1,11 +1,18 @@
 [
     {
-        "id_shop": 1,
-        "image": "test.jpg",
+        "image": "test.png",
         "bo_title": "test",
+        "classes": {
+            "col_xl": "6",
+            "col_lg": "6",
+            "col_md": "6",
+            "col_sm": "12",
+            "col_xs": "12",
+            "custom_classes": ""
+        },
+        "icon": "search",
         "type": "product",
         "item_id": 1,
-        "position": 0,
         "active": 1,
         "title": {
             "pl": "Tytuł testowy 1",
@@ -13,12 +20,19 @@
         }
     },
     {
-        "id_shop": 1,
-        "image": "test.jpg",
+        "image": "test.png",
         "bo_title": "test",
+        "classes": {
+            "col_xl": "6",
+            "col_lg": "6",
+            "col_md": "6",
+            "col_sm": "12",
+            "col_xs": "12",
+            "custom_classes": ""
+        },
+        "icon": "home",
         "type": "product",
         "item_id": 2,
-        "position": 1,
         "active": 1,
         "title": {
             "pl": "Tytuł testowy 2",
@@ -26,12 +40,19 @@
         }
     },
     {
-        "id_shop": 1,
-        "image": "test.jpg",
+        "image": "test.png",
         "bo_title": "test",
+        "classes": {
+            "col_xl": "6",
+            "col_lg": "6",
+            "col_md": "6",
+            "col_sm": "12",
+            "col_xs": "12",
+            "custom_classes": ""
+        },
+        "icon": "menu",
         "type": "category",
         "item_id": 2,
-        "position": 3,
         "active": 0,
         "title": {
             "pl": "Tytuł testowy 3",
@@ -39,16 +60,23 @@
         }
     },
     {
-        "id_shop": 1,
-        "image": "test.jpg",
+        "image": "test.png",
         "bo_title": "test",
+        "classes": {
+            "col_xl": "6",
+            "col_lg": "6",
+            "col_md": "6",
+            "col_sm": "12",
+            "col_xs": "12",
+            "custom_classes": ""
+        },
+        "icon": "close",
         "type": "cms",
         "item_id": 2,
-        "position": 2,
         "active": 0,
         "title": {
-            "pl": "Tytuł testowy 3",
-            "en": "Test title 3"
+            "pl": "Tytuł testowy 4",
+            "en": "Test title 4"
         }
     }
 ]

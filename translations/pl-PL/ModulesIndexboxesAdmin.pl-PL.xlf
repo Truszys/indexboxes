@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin500atsjj2nhqrlsxxrz" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="038416aaae1b3eed4487ddbc7ed54962">
+        <source>Boxes for index</source>
+        <target>Boksy strony głównej</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a99762bc7ec93a409938af5594487bc1">
+        <source>Add image boxes for your index page that links to categories, products or cms</source>
+        <target>Dodaj boksy ze zdjęciami do swojej strony głównej, które zawierają linki do kategorii, produktów lub cms</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d15b086b5ce164f08aa8cad1bcd66b6a">
+        <source>Are you sure you want to uninstall module?</source>
+        <target>Jesteś pewien że chcesz odinstalować moduł?</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="185ec3ece71e6873edf517d5401192a5">
+        <source>Boxes</source>
+        <target>Boksy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a1fa27779242b4902f7ae3bdd5c6d508">
+        <source>Type</source>
+        <target>Typ</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d5d3db1765287eef77d7927cc956f50a">
+        <source>title</source>
+        <target>tytuł</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0e6baa86130d2102eae93184f6e242e9">
+        <source>Boxes were successfully generated.</source>
+        <target>Boksy prawidłowo wygenerowane.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c44575847551ab0d18a4d043b2dd3b03">
+        <source>Cannot find box %box%</source>
+        <target>Nie można znaleźć boksa %box%</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="8cad974f93978a3dce9aa00b81295452">
+        <source>Add new box</source>
+        <target>Dodaj nowy boks</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="dba742f0f05c3f1ec63c77e2fab74d63">
+        <source>Generate boxes</source>
+        <target>Generuj boksy</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="50c75dbfea23f5c9c4effba1b21b8c16">
+        <source>If you want to generate the demo boxes, please click on "%generate_button_label%". Please be aware that this will remove your existing boxes (if present).</source>
+        <target>Jeśli chcesz wygenerować boksy demonstracyjne, kliknij „%generate_button_label%”. Pamiętaj, że spowoduje to usunięcie istniejących boksów (jeśli są obecne).</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7f6fa6e059143d55b5a1469a42311904">
+        <source>If you don't want to generate the demo boxes, simple click on "%back_button_label%" to go back to the list.</source>
+        <target>Jeśli nie chcesz generować boksów demonstracyjnych, po prostu kliknij "%back_button_label%", aby wrócić do listy.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="5a0d9e7bfcc62c3dec8f1d76e4931b8e">
+        <source>Go back to boxes list</source>
+        <target>Wróć do listy boksów</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3cfce651e667ab85486dd42a8185f98a">
+        <source>Box</source>
+        <target>Boks</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,3 @@
+views/img/*
+!views/img/index.php
+js/node_modules

@@ -10,7 +10,6 @@
 const $ = window.$;
 
 $(() => {
-  // $(document).ready(function() {
     const boxesGrid = new window.prestashop.component.Grid('id_box');
 
     boxesGrid.addExtension(new window.prestashop.component.GridExtensions.ReloadListExtension());
@@ -24,5 +23,4 @@ $(() => {
     boxesGrid.addExtension(new window.prestashop.component.GridExtensions.BulkActionCheckboxExtension());
     boxesGrid.addExtension(new window.prestashop.component.GridExtensions.SubmitRowActionExtension());
     boxesGrid.addExtension(new window.prestashop.component.GridExtensions.ColumnTogglingExtension());
-  // });
 });

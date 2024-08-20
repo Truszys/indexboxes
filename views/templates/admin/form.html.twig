@@ -14,15 +14,34 @@
     <div class="card">
         <h3 class="card-header">
             <i class="material-icons">mail_outline</i>
-            {{ 'Boxes'|trans({}, 'Modules.Indexboxes.Admin') }}
+            {{ 'Box'|trans({}, 'Modules.Indexboxes.Admin') }}
         </h3>
         <div class="card-body card-block">
             <div class="form-wrapper card-text">
                 {{ form_errors(boxForm) }}
-
-                {% block box_form_rest %}
-                    {{ form_rest(boxForm) }}
-                {% endblock %}
+                {{ form_row(boxForm.bo_title) }}
+                {{ form_row(boxForm.title) }}
+                {{ form_row(boxForm.icon) }}
+                <div class="form-group row">
+                    <label for="" class="form-control-label">{{ 'Column height'|trans({}, 'Modules.Indexboxes.Form') }}</label>
+                    <div class="col-sm row">
+                        <div class="col-lg col-md-3 col-sm-4 col-6">{{ form_label(boxForm.col_xl) }}{{ form_widget(boxForm.col_xl) }}{{ form_help(boxForm.col_xl) }}</div>
+                        <div class="col-lg col-md-3 col-sm-4 col-6">{{ form_label(boxForm.col_lg) }}{{ form_widget(boxForm.col_lg) }}{{ form_help(boxForm.col_lg) }}</div>
+                        <div class="col-lg col-md-3 col-sm-4 col-6">{{ form_label(boxForm.col_md) }}{{ form_widget(boxForm.col_md) }}{{ form_help(boxForm.col_md) }}</div>
+                        <div class="col-lg col-md-3 col-sm-4 col-6">{{ form_label(boxForm.col_sm) }}{{ form_widget(boxForm.col_sm) }}{{ form_help(boxForm.col_sm) }}</div>
+                        <div class="col-lg col-md-3 col-sm-4 col-6">{{ form_label(boxForm.col_xs) }}{{ form_widget(boxForm.col_xs) }}{{ form_help(boxForm.col_xs) }}</div>
+                    </div>
+                </div>
+                {{ form_row(boxForm.custom_classes) }}
+                {{ form_row(boxForm.image) }}
+                {{ form_row(boxForm.new_image) }}
+                {{ form_row(boxForm.type) }}
+                {{ form_row(boxForm.item_id) }}
+                {{ form_row(boxForm.category_id) }}
+                {{ form_row(boxForm.product_id) }}
+                {{ form_row(boxForm.cms_id) }}
+                {{ form_row(boxForm.active) }}
+                {{ form_rest(boxForm) }}
             </div>
         </div>
         <div class="card-footer">
@@ -35,6 +54,10 @@
         </div>
     </div>
     {{ form_end(boxForm) }}
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('../modules/indexboxes/views/css/box_form.css') }}" />
 {% endblock %}
 
 {% block javascripts %}

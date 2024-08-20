@@ -15,11 +15,12 @@ class IndexBox
 {
     public static $MAIN_PATH = __DIR__ . '/../..';
     public static $IMAGE_PATH = __DIR__ . '/../../views/img/';
+    public static $IMAGE_PATH_FRONT = '/modules/indexboxes/views/img/';
 
 
     public static $TYPES = [
-        'product' => 'product',
-        'category' => 'category',
+        'Product' => 'product',
+        'Category' => 'category',
         'CMS' => 'cms'
     ];
 
@@ -67,6 +68,13 @@ class IndexBox
      * @ORM\Column(name="icon", type="string", length=45)
      */
     private $icon;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="classes", type="string", length=255)
+     */
+    private $classes;
 
     /**
      * @var int
@@ -170,6 +178,34 @@ class IndexBox
     /**
      * @return string
      */
+    public function getClasses(): array
+    {
+        return json_decode($this->classes, true);
+    }
+
+    /**
+     * @return string
+     */
+    public function getFrontClasses(): string
+    {
+        $classes = json_decode($this->classes);
+        $output = 'col-xl-' . $classes->col_xl . ' col-lg-' . $classes->col_lg . ' col-md-' . $classes->col_md . ' col-sm-' . $classes->col_sm . ' col-' . $classes->col_xs;
+        if(strlen($classes->custom_classes) > 0) {
+            $output .= ' ' . $classes->custom_classes;
+        }
+        return $output;
+    }
+
+    public function setClasses(array $classes)
+    {
+        $this->classes = json_encode($classes);
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getType(): string
     {
         return $this->type;
@@ -239,8 +275,11 @@ class IndexBox
      * @param int $langId
      * @return IndexBoxLang|null
      */
-    public function getBoxLangByLangId(int $langId): ?IndexBoxLang
+    public function getBoxLangByLangId(int $langId = 0): ?IndexBoxLang
     {
+        if (0 === $langId) {
+            $langId = \Context::getContext()->language->id;
+        }
         foreach ($this->boxLangs as $boxLang) {
             if ($langId === $boxLang->getLang()->getId()) {
                 return $boxLang;
@@ -275,5 +314,25 @@ class IndexBox
             return true;
         }
         return false;
+    }
+
+    public function getLink(): string
+    {
+        $context = \Context::getContext();
+        $link = new \Link();
+        $output = '';
+        switch($this->getType())
+        {
+            case('category'):
+                $output = $link->getCategoryLink($this->getItemId(), null, $context->language->id, null, $context->shop->id);
+                break;
+            case('product'):
+                $output = $link->getProductLink($this->getItemId(), null, null, null, $context->language->id, $context->shop->id);
+                break;
+            case('cms'):
+                $output = $link->getCMSLink($this->getItemId(), null, null, $context->language->id, $context->shop->id);
+                break;
+        }
+        return $output;
     }
 }

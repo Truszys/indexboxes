@@ -5,7 +5,6 @@ namespace Module\IndexBoxes\Form;
 use Module\IndexBoxes\Entity\IndexBox;
 use PrestaShop\PrestaShop\Core\ConstraintValidator\Constraints\DefaultLanguage;
 use PrestaShopBundle\Form\Admin\Type\CategoryChoiceTreeType;
-use PrestaShopBundle\Form\Admin\Type\IconButtonType;
 use PrestaShopBundle\Form\Admin\Type\ImagePreviewType;
 use PrestaShopBundle\Form\Admin\Type\TranslatableType;
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
@@ -40,6 +39,20 @@ class IndexBoxType extends TranslatorAwareType
         'grade' => '&#xe885;',
         'refresh' => '&#xe5d5;',
     ];
+    private $cols = [
+        1 => 1,
+        2 => 2,
+        3 => 3,
+        4 => 4,
+        5 => 5,
+        6 => 6,
+        7 => 7,
+        8 => 8,
+        9 => 9,
+        10 => 10,
+        11 => 11,
+        12 => 12,
+    ];
     /**
      * {@inheritdoc}
      */
@@ -60,7 +73,6 @@ class IndexBoxType extends TranslatorAwareType
         }
 
         $icons = array_flip(array_map('html_entity_decode',$this->icons));
-
         $builder
             ->add('bo_title', TextType::class, [
                 'label' => $this->trans('BO Title', 'Modules.Indexboxes.Form'),
@@ -97,9 +109,40 @@ class IndexBoxType extends TranslatorAwareType
             ])
             ->add('icon', ChoiceType::class, [
                 'label' => $this->trans('Icon', 'Modules.Indexboxes.Form'),
-                'help' => $this->trans('Icon displayed after the title', 'Modules.Indexboxes.Form'),
+                'help' => $this->trans('Icon displayed before the title', 'Modules.Indexboxes.Form'),
                 'attr' => ['class' => 'material-icons'],
+                'row_attr' => ['class' => 'col-md-6'],
                 'choices' => $icons,
+                'required' => false,
+            ])
+            ->add('col_xl', ChoiceType::class, [
+                'label' => $this->trans('XL', 'Modules.Indexboxes.Form'),
+                'help' => '>= 1200px',
+                'choices' => $this->cols,
+            ])
+            ->add('col_lg', ChoiceType::class, [
+                'label' => $this->trans('LG', 'Modules.Indexboxes.Form'),
+                'help' => '>= 992px',
+                'choices' => $this->cols,
+            ])
+            ->add('col_md', ChoiceType::class, [
+                'label' => $this->trans('MD', 'Modules.Indexboxes.Form'),
+                'help' => '>= 768px',
+                'choices' => $this->cols,
+            ])
+            ->add('col_sm', ChoiceType::class, [
+                'label' => $this->trans('SM', 'Modules.Indexboxes.Form'),
+                'help' => '>= 576px',
+                'choices' => $this->cols,
+            ])
+            ->add('col_xs', ChoiceType::class, [
+                'label' => $this->trans('XS', 'Modules.Indexboxes.Form'),
+                'help' => '< 576px',
+                'choices' => $this->cols,
+            ])
+            ->add('custom_classes', TextType::class, [
+                'label' => $this->trans('Custom classes', 'Modules.Indexboxes.Form'),
+                'help' => $this->trans('Classes for box container', 'Modules.Indexboxes.Form'),
                 'required' => false,
             ])
             ->add('image', ImagePreviewType::class, [
@@ -121,7 +164,7 @@ class IndexBoxType extends TranslatorAwareType
                     ])
                 ],
                 'data_class' => null,
-                'required' => false,
+                'required' => !isset($builder->getData()['id_box'])
             ])
             ->add('type', ChoiceType::class, [
                 'label' => $this->trans('Type', 'Modules.Indexboxes.Form'),

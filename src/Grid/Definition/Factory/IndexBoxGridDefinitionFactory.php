@@ -88,9 +88,6 @@ class IndexBoxGridDefinitionFactory extends AbstractGridDefinitionFactory
                     'position_field' => 'position',
                     'update_route' => 'ps_indexboxes_box_change_position',
                     'update_method' => 'POST',
-                    // 'record_route_params' => [
-                    //     'id_box' => 'boxId',
-                    // ],
                 ])
             )
             ->add((new ToggleColumn('active'))

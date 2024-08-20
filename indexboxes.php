@@ -35,7 +35,7 @@ class Indexboxes extends Module
 
     public function install()
     {
-        return $this->installTables() && parent::install() && $this->registerHook('displayHome');
+        return $this->installTables() && parent::install() && $this->registerHook('displayHeader') && $this->registerHook('displayHome');
     }
 
     public function uninstall()
@@ -103,22 +103,10 @@ class Indexboxes extends Module
     }
 
     /**
-     * Add the CSS & JavaScript files you want to be loaded in the BO.
-     */
-    public function hookDisplayBackOfficeHeader()
-    {
-        if (Tools::getValue('configure') == $this->name) {
-            $this->context->controller->addJS($this->_path . 'views/js/back.js');
-            $this->context->controller->addCSS($this->_path . 'views/css/back.css');
-        }
-    }
-
-    /**
      * Add the CSS & JavaScript files you want to be added on the FO.
      */
     public function hookHeader()
     {
-        $this->context->controller->addJS($this->_path . '/views/js/front.js');
         $this->context->controller->addCSS($this->_path . '/views/css/front.css');
     }
 

@@ -12,8 +12,6 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class IndexBoxFormDataHandler implements FormDataHandlerInterface
 {
-    private $IMAGE_PATH_FRONT = '/modules/indexboxes/views/img/';
-
     /**
      * @var IndexBoxRepository
      */
@@ -53,13 +51,19 @@ class IndexBoxFormDataHandler implements FormDataHandlerInterface
         $box = new IndexBox();
         $box->setBoTitle($data['bo_title']);
         $box->setIdShop($context->shop->id);
+        $box->setClasses([
+            'col_xl' => $data['col_xl'],
+            'col_lg' => $data['col_lg'],
+            'col_md' => $data['col_md'],
+            'col_sm' => $data['col_sm'],
+            'col_xs' => $data['col_xs'],
+            'custom_classes' => $data['custom_classes'],
+        ]);
         $box->setIcon($data['icon']);
         $box->setImage('');
         $box->setType($data['type']);
-        dump($data);
         $box->setItemId($data[$data['type'] . '_id']);
         $box->setPosition($position = $this->boxRepository->getMaxPosition($context->shop->id) + 1);
-        dump($position);
         $box->setActive($data['active']);
         $defLang = null;
         foreach ($data['title'] as $langId => $langTitle) {
@@ -84,10 +88,10 @@ class IndexBoxFormDataHandler implements FormDataHandlerInterface
         $this->entityManager->persist($box);
         $this->entityManager->flush();
         $filesystem = new Filesystem();
-        if($filesystem->exists($data['image'])) {
-            $ext = $data['image']->guessExtension();
-            $filesystem->rename($data['image'], IndexBox::$IMAGE_PATH . $box->getId() . '.' . $ext, true);
-            $box->setImage($this->IMAGE_PATH_FRONT . $box->getId() . '.' . $ext);
+        if($filesystem->exists($data['new_image'])) {
+            $ext = $data['new_image']->guessExtension();
+            $filesystem->rename($data['new_image'], IndexBox::$IMAGE_PATH . $box->getId() . '.' . $ext, true);
+            $box->setImage(IndexBox::$IMAGE_PATH_FRONT . $box->getId() . '.' . $ext);
             $this->entityManager->persist($box);
             $this->entityManager->flush();
             return $box->getId();
@@ -105,8 +109,16 @@ class IndexBoxFormDataHandler implements FormDataHandlerInterface
         $box = $this->boxRepository->findOneById($id);
         $box->setBoTitle($data['bo_title']);
         $box->setIcon($data['icon']);
+        $box->setClasses([
+            'col_xl' => $data['col_xl'],
+            'col_lg' => $data['col_lg'],
+            'col_md' => $data['col_md'],
+            'col_sm' => $data['col_sm'],
+            'col_xs' => $data['col_xs'],
+            'custom_classes' => $data['custom_classes'],
+        ]);
         $box->setType($data['type']);
-        $box->setItemId($data['item_id']);
+        $box->setItemId($data[$data['type'] . '_id']);
         $box->setActive($data['active']);
         foreach ($data['title'] as $langId => $title) {
             $boxLang = $box->getBoxLangByLangId($langId);
@@ -122,7 +134,7 @@ class IndexBoxFormDataHandler implements FormDataHandlerInterface
             }
             $ext = $data['new_image']->guessExtension();
             $filesystem->rename($data['new_image'], IndexBox::$IMAGE_PATH . $id . '.' . $ext, true);
-            $box->setImage($this->IMAGE_PATH_FRONT . $id . '.' . $ext);
+            $box->setImage(IndexBox::$IMAGE_PATH_FRONT . $id . '.' . $ext);
         } else {
             $box->setImage($data['image']);
         }

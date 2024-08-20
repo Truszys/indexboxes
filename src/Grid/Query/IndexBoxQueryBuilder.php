@@ -69,6 +69,7 @@ class IndexBoxQueryBuilder extends AbstractDoctrineQueryBuilder
      */
     private function getQueryBuilder(array $filters)
     {
+
         $allowedFilters = [
             'id_box',
             'bo_title',
@@ -102,6 +103,9 @@ class IndexBoxQueryBuilder extends AbstractDoctrineQueryBuilder
             $qb->andWhere("$name LIKE :$name");
             $qb->setParameter($name, '%' . $value . '%');
         }
+
+        $qb->andWhere("id_shop = :idShop");
+        $qb->setParameter('idShop', \Context::getContext()->shop->id);
 
         return $qb;
     }

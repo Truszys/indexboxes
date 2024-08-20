@@ -1,4 +1,3 @@
-# @see https://devdocs.prestashop.com/1.7/modules/concepts/controllers/admin-controllers/#how-to-map-an-action-of-your-controller-to-a-uri
 ps_indexboxes_box_index:
     path: /index-boxes/boxes
     methods: [GET]
